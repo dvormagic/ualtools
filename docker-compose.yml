@@ -1,0 +1,26 @@
+
+version: '2'
+services:
+  go:
+    build:
+      context: containers/go
+
+  java:
+    build:
+      context: containers/java
+
+  python:
+    build:
+      context: containers/python
+
+  redis:
+    build:
+      context: containers/redis
+  
+  mysql:
+    build:
+      context: containers/mysql
+
+  mongo:
+    build:
+      context: containers/mongo
