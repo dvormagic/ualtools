@@ -24,3 +24,8 @@ services:
   mongo:
     build:
       context: containers/mongo
+
+  phpmyadmin:
+    image: eu.gcr.io/ual-tools/phpmyadmin:latest
+    build:
+      context: containers/phpmyadmin
