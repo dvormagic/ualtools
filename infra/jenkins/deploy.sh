@@ -2,7 +2,7 @@
 
 set -eu
 
-. /infra/functions/functions.sh
+. infra/functions/functions.sh
 
 GOOGLE_PROJECT=ual-tools
 
