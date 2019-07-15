@@ -12,11 +12,9 @@ jobs:
   deploy:
     docker:
       - image: google/cloud-sdk
-    working_directory: ~/ualtools
+    working_directory: ~/ualtools/infra/circleci
     steps:
-      - run: echo $PWD
-      - run: ls
-      - run: ./infra/circleci/deploy.sh
+      - run: ./deploy.sh
 
 workflows:
   version: 2
