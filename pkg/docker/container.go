@@ -35,7 +35,7 @@ type ContainerManager struct {
 func Container(name string, options ...ContainerOption) (*ContainerManager, error) {
 	container := &ContainerManager{
 		name:    fmt.Sprintf("%s_%s", config.ProjectName(), name),
-		noTTY:   config.Jenkins(),
+		noTTY:   config.CircleCI(),
 		env:     make(map[string]string),
 		volumes: make(map[string]string),
 		ports:   make(map[int64]int64),

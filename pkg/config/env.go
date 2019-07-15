@@ -5,8 +5,8 @@ import (
 	"runtime"
 )
 
-func Jenkins() bool {
-	return os.Getenv("JENKINS_URL") != ""
+func CircleCI() bool {
+	return os.Getenv("CIRCLECI")
 }
 
 func SSHAgentSocket() string {

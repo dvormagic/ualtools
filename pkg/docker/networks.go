@@ -1,57 +1,57 @@
 package docker
 
 import (
-  "os/exec"
+	"os/exec"
 
-  "github.com/juju/errors"
-  log "github.com/sirupsen/logrus"
+	"github.com/juju/errors"
+	log "github.com/sirupsen/logrus"
 )
 
 type NetworkManager struct {
-  name string
+	name string
 }
 
 func Network(name string) *NetworkManager {
-  return NetworkWithRealname("ualtools_" + name)
+	return NetworkWithRealname("ualtools_" + name)
 }
 
 func NetworkWithRealname(name string) *NetworkManager {
-  return &NetworkManager{name: name}
+	return &NetworkManager{name: name}
 }
 
 func (network *NetworkManager) Exists() (bool, error) {
-  cmd := exec.Command("docker", "network", "inspect", network.name)
-  if err := cmd.Run(); err != nil {
-    if !cmd.ProcessState.Success() {
-      return false, nil
-    }
+	cmd := exec.Command("docker", "network", "inspect", network.name)
+	if err := cmd.Run(); err != nil {
+		if !cmd.ProcessState.Success() {
+			return false, nil
+		}
 
-    return false, errors.Trace(err)
-  }
+		return false, errors.Trace(err)
+	}
 
-  return true, nil
+	return true, nil
 }
 
 func (network *NetworkManager) Create() error {
-  log.WithFields(log.Fields{"network": network.name}).Info("Create network")
+	log.WithFields(log.Fields{"network": network.name}).Info("Create network")
 
-  cmd := exec.Command("docker", "network", "create", network.name)
-  return errors.Trace(cmd.Run())
+	cmd := exec.Command("docker", "network", "create", network.name)
+	return errors.Trace(cmd.Run())
 }
 
 func (network *NetworkManager) CreateIfNotExists() error {
-  exists, err := network.Exists()
-  if err != nil {
-    return errors.Trace(err)
-  }
+	exists, err := network.Exists()
+	if err != nil {
+		return errors.Trace(err)
+	}
 
-  if !exists {
-    return errors.Trace(network.Create())
-  }
+	if !exists {
+		return errors.Trace(network.Create())
+	}
 
-  return nil
+	return nil
 }
 
 func (network *NetworkManager) String() string {
-  return network.name
+	return network.name
 }
