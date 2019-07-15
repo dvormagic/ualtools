@@ -13,7 +13,7 @@ jobs:
     docker:
       - image: google/cloud-sdk
     steps:
-      - run: ./infra/circleci/deploy.sh
+      - run: /go/src/github.com/dvormagic/ualtools/infra/circleci/deploy.sh
 
 workflows:
   version: 2
