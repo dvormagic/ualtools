@@ -4,6 +4,9 @@ set -eu
 
 . infra/functions/functions.sh
 
+run "gcloud auth activate-service-account --key-file=../../config/service-account.json"
+run "gcloud --quiet config set project ${GOOGLE_PROJECT_ID}"
+run "gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}"
 run "gcloud auth configure-docker"
 
 run "sed -i 's/dev/$(build-tag)/g' pkg/config/version.go"
