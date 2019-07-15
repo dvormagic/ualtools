@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.11
-    working_directory: /go/src/github.com/dvormagic/ualtools
+    working_directory: ~/ualtools
     steps:
       - checkout
       - run: go get -v -t -d ./...
@@ -13,7 +13,7 @@ jobs:
     docker:
       - image: google/cloud-sdk
     steps:
-      - run: /go/src/github.com/dvormagic/ualtools/infra/circleci/deploy.sh
+      - run: ./infra/circleci/deploy.sh
 
 workflows:
   version: 2
