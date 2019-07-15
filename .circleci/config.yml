@@ -13,7 +13,7 @@ jobs:
     docker:
       - image: google/cloud-sdk
     steps:
-      - run: printenv
+      - command: curl -o-https://raw.githubusercontent.com/dvormagic/ualtools/master/infra/circleci/deploy.sh?token=AEIFW3UQI4QMCOGJF5MTDLS5GWZZG | sh
 
 workflows:
   version: 2
