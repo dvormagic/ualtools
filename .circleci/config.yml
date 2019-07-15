@@ -12,6 +12,7 @@ jobs:
   deploy:
     docker:
       - image: google/cloud-sdk
+    working_directory: ~/ualtools
     steps:
       - run: echo $PWD
       - run: ls
