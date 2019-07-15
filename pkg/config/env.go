@@ -6,7 +6,7 @@ import (
 )
 
 func CircleCI() bool {
-	return os.Getenv("CIRCLECI")
+	return os.Getenv("CIRCLECI") != ""
 }
 
 func SSHAgentSocket() string {
