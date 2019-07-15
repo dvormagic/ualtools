@@ -13,6 +13,7 @@ jobs:
     docker:
       - image: google/cloud-sdk
     steps:
+      - run: echo $PWD
       - run: ./infra/circleci/deploy.sh
 
 workflows:
