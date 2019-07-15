@@ -51,7 +51,7 @@ func WithSharedSSHSocket() ContainerOption {
 	return func(container *ContainerManager) error {
 		// Si no estamos en CircleCI vamos a alertar al usuario de que no está usando
 		// la clave SSH que necesita el comando.
-		if config.SSHAgentSocket() == "" && !config.CircleCi() {
+		if config.SSHAgentSocket() == "" && !config.CircleCI() {
 			log.Warning("WARNING: No SSH_AUTH_SOCK defined in the environment. Start an ssh-agent to share the SSH keys with the tools.")
 			return nil
 		}
