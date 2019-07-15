@@ -4,9 +4,7 @@ set -eu
 
 . infra/functions/functions.sh
 
-GOOGLE_PROJECT=ual-tools
-
-configure-google-cloud
+run "gcloud auth configure-docker"
 
 run "sed -i 's/dev/$(build-tag)/g' pkg/config/version.go"
 run 'ualtools go build -o ualtools ./cmd/ualtools'
