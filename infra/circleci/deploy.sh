@@ -10,7 +10,7 @@ run "gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}"
 run "gcloud auth configure-docker"
 
 run "sed -i 's/dev/$(build-tag)/g' pkg/config/version.go"
-run "gsutil -h 'Cache-Control: no-cache' cp ualtools gs://ualtools/bin/ualtools"
+run "gsutil -h 'Cache-Control: no-cache' cp cmd/ualtools/ualtools gs://ualtools/bin/ualtools"
 
 run "echo $(build-tag) > version"
 run "gsutil -h 'Cache-Control: no-cache' cp version gs://ualtools/version-manifest/ualtools"
