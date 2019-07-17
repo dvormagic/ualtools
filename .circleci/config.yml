@@ -18,6 +18,7 @@ jobs:
       GOOGLE_PROJECT_ID: ual-tools
       GOOGLE_COMPUTE_ZONE: europe-west1
     steps:
+      - checkout
       - run: ./infra/circleci/deploy.sh
 
 workflows:
