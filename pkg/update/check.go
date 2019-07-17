@@ -16,7 +16,7 @@ import (
 
 func Check() error {
 	// CircleCI y el entorno de desarrollo de ualtools no deben comprobar la versión
-	if config.Development() || config.Circle() {
+	if config.Development() || config.CircleCI() {
 		return nil
 	}
 
