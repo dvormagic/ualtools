@@ -9,7 +9,12 @@ jobs:
       - checkout
       - run: go get -v -t -d ./...
       - run: go test -v ./...
-      - run: go build -o ualtools ./cmd/ualtools
+      - run: mkdir -p workspace
+      - run: go build -o workspace/ualtools ./cmd/ualtools
+      - persist_to_workspace:
+          root: workspace
+          paths:
+            - ualtools
   deploy:
     docker:
       - image: google/cloud-sdk
@@ -19,6 +24,9 @@ jobs:
       GOOGLE_COMPUTE_ZONE: europe-west1
     steps:
       - checkout
+      - attach_workspace:
+          at: ~/ualtools/workspace
+
       - run: ./infra/circleci/deploy.sh
 
 workflows:
