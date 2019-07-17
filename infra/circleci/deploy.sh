@@ -19,7 +19,7 @@ run "gsutil -h 'Cache-Control: no-cache' cp infra/install/install.sh gs://ualtoo
 
 for FILE in containers/*/Dockerfile; do
   APP=$(basename $(dirname $FILE))
-  docker-build-autotag eu.gcr.io/$GOOGLE_PROJECT/$APP containers/$APP/Dockerfile containers/$APP
+  docker-build-autotag eu.gcr.io/$GOOGLE_PROJECT_ID/$APP containers/$APP/Dockerfile containers/$APP
 done
 
 git-tag
