@@ -23,7 +23,7 @@ function docker-build-autotag {
 }
 
 function build-tag {
-  echo $(date +%Y%m%d).$BUILD_NUMBER
+  echo $(date +%Y%m%d).$CIRCLE_BUILD_NUM
 }
 
 function git-tag {
