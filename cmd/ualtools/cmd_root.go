@@ -1,10 +1,10 @@
 package main
 
 import (
-	// "github.com/juju/errors"
+	"github.com/dvormagic/ualtools/pkg/update"
+	"github.com/juju/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	// "github.com/dvormagic/ualtools/pkg/update"
 )
 
 var debugApp bool
@@ -23,9 +23,9 @@ var CmdRoot = &cobra.Command{
 			log.Debug("DEBUG log level activated")
 		}
 
-		// if err := update.Check(); err != nil {
-		// 	return errors.Trace(err)
-		// }
+		if err := update.Check(); err != nil {
+			return errors.Trace(err)
+		}
 
 		return nil
 	},
