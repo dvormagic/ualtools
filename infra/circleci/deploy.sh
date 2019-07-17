@@ -15,7 +15,7 @@ run "gsutil -h 'Cache-Control: no-cache' cp workspace/ualtools gs://ualtools/bin
 run "echo $(build-tag) > version"
 run "gsutil -h 'Cache-Control: no-cache' cp version gs://ualtools/version-manifest/ualtools"
 
-run "gsutil -h 'Cache-Control: no-cache' cp install/install.sh gs://ualtools/install/ualtools"
+run "gsutil -h 'Cache-Control: no-cache' cp infra/install/install.sh gs://ualtools/install/ualtools"
 
 for FILE in containers/*/Dockerfile; do
   APP=$(basename $(dirname $FILE))
