@@ -1,19 +1,17 @@
 
-FROM golang:1.11
+FROM golang:1.12
 
 RUN apt-get update && \
     apt-get install -y zip unzip
 
-RUN mkdir /home/container && \
-   chmod 0777 /home/container
+RUN groupadd --gid 1000 -r localgrp -o && \
+    useradd --system --uid=1000 --gid=1000 --home-dir /home/container local1000 -o && \
+    useradd --system --uid=1001 --gid=1000 --home-dir /home/container local1001 -o
 
-ENV CACHE_BUST 1
-ENV GOPATH /gotools
-RUN go get -u github.com/cortesi/modd/cmd/modd
-ENV GOPATH /go
+COPY gitconfig /home/container/.gitconfig
+COPY gitconfig /root/.gitconfig
 
-COPY run.sh /opt/run.sh
+COPY sshconfig /home/container/.ssh/config
+COPY sshconfig /root/.ssh/config
 
-ENV PATH $PATH:/gotools/bin
-
-CMD ["/opt/run.sh"]
+WORKDIR /workspace

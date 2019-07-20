@@ -14,6 +14,7 @@ echo """
 **/*.go /workspace/pkg/**/*.go {
   prep: go install ./cmd/$APP
 }
+
 /go/bin/$APP {
   daemon +sigterm: $APP
 }

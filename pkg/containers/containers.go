@@ -15,6 +15,16 @@ type Container struct {
 }
 
 var containers = []Container{
+		{
+		Image: "dev-go",
+		Tools: []string{},
+		Options: []docker.ContainerOption{
+			docker.WithSharedWorkspace(),
+			docker.WithLocalUser(),
+			docker.WithSharedGopath(),
+			docker.WithStandardHome(),
+		},
+	},
 	{
 		Image: "go",
 		Tools: []string{"go", "gofmt"},
@@ -22,7 +32,26 @@ var containers = []Container{
 			docker.WithSharedWorkspace(),
 			docker.WithLocalUser(),
 			docker.WithSharedGopath(),
-			docker.WithSharedGcloud(),
+			docker.WithStandardHome(),
+			docker.WithSharedSSHSocket(),
+		},
+	},
+	{
+		Image: "python",
+		Tools: []string{"python"},
+		Options: []docker.ContainerOption{
+			docker.WithSharedWorkspace(),
+			docker.WithLocalUser(),
+			docker.WithStandardHome(),
+			docker.WithSharedSSHSocket(),
+		},
+	},
+	{
+		Image: "java",
+		Tools: []string{"java"},
+		Options: []docker.ContainerOption{
+			docker.WithSharedWorkspace(),
+			docker.WithLocalUser(),
 			docker.WithStandardHome(),
 			docker.WithSharedSSHSocket(),
 		},
