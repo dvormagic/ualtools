@@ -7,10 +7,7 @@ jobs:
     working_directory: ~/ualtools
     steps:
       - checkout
-      - run: go get -v -t -d ./...
-      - run: go test -v ./...
-      - run: mkdir -p workspace
-      - run: go build -o workspace/ualtools ./cmd/ualtools
+      - run: ./infra/circleci/build.sh
       - persist_to_workspace:
           root: workspace
           paths:
