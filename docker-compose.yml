@@ -1,27 +1,38 @@
 
 version: '2'
 services:
+  dev-go:
+    image: eu.gcr.io/ual-tools/dev-go:latest
+    build:
+      context: containers/dev-go
+
   go:
+    image: eu.gcr.io/ual-tools/go:latest
     build:
       context: containers/go
 
   java:
+    image: eu.gcr.io/ual-tools/java:latest
     build:
       context: containers/java
 
   python:
+    image: eu.gcr.io/ual-tools/python:latest
     build:
       context: containers/python
 
   redis:
+    image: eu.gcr.io/ual-tools/redis:latest
     build:
       context: containers/redis
   
   mysql:
+    image: eu.gcr.io/ual-tools/mysql:latest
     build:
       context: containers/mysql
 
   mongo:
+    image: eu.gcr.io/ual-tools/mongo:latest
     build:
       context: containers/mongo
 
