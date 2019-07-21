@@ -47,6 +47,16 @@ var containers = []Container{
 		},
 	},
 	{
+		Image: "dev-python",
+		Tools: []string{},
+		Options: []docker.ContainerOption{
+			docker.WithSharedWorkspace(),
+			docker.WithLocalUser(),
+			docker.WithStandardHome(),
+			docker.WithSharedSSHSocket(),
+		},
+	},
+	{
 		Image: "java",
 		Tools: []string{"java"},
 		Options: []docker.ContainerOption{
