@@ -11,7 +11,7 @@ fi
 cd /workspace/$WORKDIR
 
 if [ -f "requirements.txt" ]; then
-  pip install --trusted-host pypi.python.org -r requirements.txt
+  pip install --trusted-host pypi.python.org --user -r requirements.txt
 fi
 
 python main.py
