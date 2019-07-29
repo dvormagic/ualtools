@@ -86,6 +86,14 @@ var containers = []Container{
 			docker.WithoutTTY(),
 		},
 	},
+	{
+		Image: "migrator",
+		Tools: []string{"migrator", "init-migrator"},
+		Options: []docker.ContainerOption{
+			docker.WithSharedWorkspace(),
+			docker.WithStandardHome(),
+		},
+	},
 }
 
 func Images() []string {
