@@ -40,8 +40,3 @@ services:
     image: eu.gcr.io/ual-tools/phpmyadmin:latest
     build:
       context: containers/phpmyadmin
-
-  migrator:
-    image: eu.gcr.io/ual-tools/migrator:latest
-    build:
-      context: containers/migrator
