@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 
@@ -55,7 +56,12 @@ func Check() error {
 			log.Warning()
 			log.Warning("Run the following command to install the latest version:")
 			log.Warning()
-			log.Warning("\tcurl https://storage.googleapis.com/ualtools/install/ualtools | bash")
+
+			switch runtime.GOOS {
+			case "linux":
+				log.Warning("\tcurl https://storage.googleapis.com/ualtools/install/linux-ualtools | bash")
+			}
+
 			log.Warning()
 
 			os.Exit(2)

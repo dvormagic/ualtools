@@ -11,7 +11,9 @@ jobs:
       - persist_to_workspace:
           root: workspace
           paths:
-            - ualtools
+            - linux/ualtools
+            - mac/ualtools
+            - windows/ualtools.exe
   deploy:
     docker:
       - image: google/cloud-sdk

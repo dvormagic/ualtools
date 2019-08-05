@@ -186,7 +186,7 @@ func (container *ContainerManager) buildCommand(operation string, args ...string
 	// Cambiamos el usuario de dentro para que coincida con el de fuera y los
 	// archivos escritos mantengan los permisos iguales en todas partes. En Windows
 	// no es necesario puesto que usa Samba y una máquina virtual.
-	if container.localUser && config.Linux() {
+	if container.localUser && !config.Windows() {
 		sh = append(sh, "--user", fmt.Sprintf("%d:%d", os.Getuid(), os.Getgid()))
 	}
 

@@ -26,6 +26,10 @@ func MacOS() bool {
 }
 
 func Home() string {
+	if Windows() {
+		return os.Getenv("HOMEPATH")
+	}
+
 	return os.Getenv("HOME")
 }
 
