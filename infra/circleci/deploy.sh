@@ -4,9 +4,6 @@ set -eu
 
 . infra/functions/functions.sh
 
-run "echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-"
-run "gcloud --quiet config set project ${GOOGLE_PROJECT_ID}"
-run "gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}"
 run "gcloud auth configure-docker"
 
 run "gsutil -h 'Cache-Control: no-cache' cp workspace/linux/ualtools gs://ualtools/linux/ualtools"
