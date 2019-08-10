@@ -26,6 +26,15 @@ var containers = []Container{
 		},
 	},
 	{
+		Image: "dev-java",
+		Tools: []string{},
+		Options: []docker.ContainerOption{
+			docker.WithSharedWorkspace(),
+			docker.WithLocalUser(),
+			docker.WithStandardHome(),
+		},
+	},
+	{
 		Image: "go",
 		Tools: []string{"go", "gofmt"},
 		Options: []docker.ContainerOption{
@@ -39,16 +48,6 @@ var containers = []Container{
 	{
 		Image: "python",
 		Tools: []string{"python"},
-		Options: []docker.ContainerOption{
-			docker.WithSharedWorkspace(),
-			docker.WithLocalUser(),
-			docker.WithStandardHome(),
-			docker.WithSharedSSHSocket(),
-		},
-	},
-	{
-		Image: "dev-python",
-		Tools: []string{},
 		Options: []docker.ContainerOption{
 			docker.WithSharedWorkspace(),
 			docker.WithLocalUser(),
