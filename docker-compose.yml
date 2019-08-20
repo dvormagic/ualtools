@@ -4,7 +4,12 @@ services:
   dev-go:
     image: eu.gcr.io/ual-tools/dev-go:latest
     build:
-      context: containers/dev-go
+      context: containers/dev-go 
+
+  dev-java:
+    image: eu.gcr.io/ual-tools/dev-java:latest
+    build:
+      context: containers/dev-java
 
   go:
     image: eu.gcr.io/ual-tools/go:latest

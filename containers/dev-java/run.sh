@@ -8,6 +8,4 @@ else
   APP=$(basename $WORKDIR)
 fi
 
-cd /workspace/$WORKDIR/src/main/java/com/ualtools/$WORKDIR
-
 mvn spring-boot:run
