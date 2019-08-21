@@ -79,6 +79,14 @@ var containers = []Container{
 		Options: []docker.ContainerOption{},
 	},
 	{
+		Image: "migrator",
+		Tools: []string{"migrator", "init-migrator"},
+		Options: []docker.ContainerOption{
+			docker.WithSharedWorkspace(),
+			docker.WithStandardHome(),
+		},
+	},
+	{
 		Image: "redis",
 		Tools: []string{"redis-cli"},
 		Options: []docker.ContainerOption{

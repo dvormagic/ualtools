@@ -3,6 +3,8 @@
 
 ### Install
 
+## Linux
+
 ```shell
-curl https://storage.googleapis.com/ualtools/install/ualtools | bash
+curl https://storage.googleapis.com/ualtools/install/linux-ualtools | bash
 ```
