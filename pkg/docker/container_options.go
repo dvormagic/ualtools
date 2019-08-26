@@ -110,33 +110,6 @@ func WithVolume(source, inside string) ContainerOption {
 	}
 }
 
-func WithSharedGcloud() ContainerOption {
-	return func(container *ContainerManager) error {
-		configPath := fmt.Sprintf("%s/.config/gcloud", config.Home())
-		if ok, err := hasConfig(configPath); err != nil {
-			return errors.Trace(err)
-		} else if ok {
-			container.volumes[configPath] = "/home/container/.config/gcloud"
-		}
-
-		configPath = fmt.Sprintf("%s/.gsutil", config.Home())
-		if ok, err := hasConfig(configPath); err != nil {
-			return errors.Trace(err)
-		} else if ok {
-			container.volumes[configPath] = "/home/container/.gsutil"
-		}
-
-		configPath = fmt.Sprintf("%s/.kube", config.Home())
-		if ok, err := hasConfig(configPath); err != nil {
-			return errors.Trace(err)
-		} else if ok {
-			container.volumes[configPath] = "/home/container/.kube"
-		}
-
-		return nil
-	}
-}
-
 func WithPort(source, inside int64) ContainerOption {
 	return func(container *ContainerManager) error {
 		container.ports[source] = inside

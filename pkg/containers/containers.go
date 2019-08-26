@@ -15,7 +15,7 @@ type Container struct {
 }
 
 var containers = []Container{
-		{
+	{
 		Image: "dev-go",
 		Tools: []string{},
 		Options: []docker.ContainerOption{
