@@ -13,16 +13,8 @@ func SSHAgentSocket() string {
 	return os.Getenv("SSH_AUTH_SOCK")
 }
 
-func Linux() bool {
-	return runtime.GOOS == "linux"
-}
-
 func Windows() bool {
 	return runtime.GOOS == "windows"
-}
-
-func MacOS() bool {
-	return runtime.GOOS == "darwin"
 }
 
 func Home() string {
