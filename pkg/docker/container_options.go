@@ -157,18 +157,6 @@ func WithPersistence() ContainerOption {
 	}
 }
 
-func hasConfig(path string) (bool, error) {
-	if _, err := os.Stat(path); err != nil {
-		if !os.IsNotExist(err) {
-			return false, errors.Trace(err)
-		}
-
-		return false, nil
-	}
-
-	return true, nil
-}
-
 func WithStandardHome() ContainerOption {
 	return func(container *ContainerManager) error {
 		container.env["HOME"] = "/home/container"
