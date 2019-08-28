@@ -1,3 +1,4 @@
+
 FROM maven:3.3-jdk-8
 
 RUN mkdir /home/container && \
@@ -13,6 +14,4 @@ RUN groupadd --gid 1000 -r localgrp -o && \
 
 ENV MAVEN_CONFIG /home/container/.m2
 
-COPY run.sh /opt/run.sh
-
-CMD ["/opt/run.sh"]
+CMD ["mvn", "spring-boot:run"]

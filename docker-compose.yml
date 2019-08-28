@@ -41,11 +41,6 @@ services:
     build:
       context: containers/mysql
 
-  mongo:
-    image: eu.gcr.io/ual-tools/mongo:latest
-    build:
-      context: containers/mongo
-
   phpmyadmin:
     image: eu.gcr.io/ual-tools/phpmyadmin:latest
     build:
