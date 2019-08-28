@@ -57,7 +57,7 @@ var containers = []Container{
 	},
 	{
 		Image: "java",
-		Tools: []string{"java"},
+		Tools: []string{"java", "javac"},
 		Options: []docker.ContainerOption{
 			docker.WithSharedWorkspace(),
 			docker.WithLocalUser(),
