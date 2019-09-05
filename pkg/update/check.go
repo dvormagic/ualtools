@@ -54,12 +54,25 @@ func Check() error {
 			log.WithFields(log.Fields{"current": config.Version, "latest": version}).Error("ualtools is not updated")
 
 			log.Warning()
-			log.Warning("Run the following command to install the latest version:")
-			log.Warning()
 
 			switch runtime.GOOS {
 			case "linux":
+				log.Warning("Run the following command to install the latest version:")
+				log.Warning()
 				log.Warning("\tcurl https://storage.googleapis.com/ualtools/install/linux-ualtools | bash")
+				break
+
+			case "darwin":
+				log.Warning("Run the following command to install the latest version:")
+				log.Warning()
+				log.Warning("\tcurl https://storage.googleapis.com/ualtools/install/mac-ualtools | bash")
+				break
+
+			case "windows":
+				log.Warning("Run the following command to download the latest version:")
+				log.Warning()
+				log.Warning("\tcurl https://storage.googleapis.com/ualtools/windows/ualtools.exe")
+				break
 			}
 
 			log.Warning()
