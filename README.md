@@ -8,3 +8,14 @@
 ```shell
 curl https://storage.googleapis.com/ualtools/install/linux-ualtools | bash
 ```
+
+### MacOS
+
+```shell
+curl https://storage.googleapis.com/ualtools/install/mac-ualtools | bash
+```
+
+### Windows
+```shell
+curl https://storage.googleapis.com/ualtools/windows/ualtools.exe
+```
