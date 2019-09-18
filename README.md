@@ -19,3 +19,6 @@ curl https://storage.googleapis.com/ualtools/install/mac-ualtools | bash
 ```shell
 curl https://storage.googleapis.com/ualtools/windows/ualtools.exe
 ```
+
+### Example environment
+  https://storage.googleapis.com/ualtools/example.zip
